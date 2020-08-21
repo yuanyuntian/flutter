@@ -1,10 +1,12 @@
 
 import 'package:flutter/material.dart';
+import 'package:helloworld_flutter/demo/view_demo.dart';
 import './demo/listview_demo.dart';
 import './demo/drawer_demo.dart';
 import './demo/bottom_navigationBar_demo.dart';
 import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
+import './demo/view_demo.dart';
 
 void main() => runApp(App());
 
@@ -31,7 +33,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return DefaultTabController(
-      length: 3, 
+      length: 4, 
       child: Scaffold (
        appBar: AppBar(
          title: Text("你好"),
@@ -47,7 +49,8 @@ class Home extends StatelessWidget {
            tabs: [
              Tab(icon:Icon(Icons.play_arrow)),
              Tab(icon:Icon(Icons.settings)),
-             Tab(icon:Icon(Icons.home))
+             Tab(icon:Icon(Icons.home)),
+             Tab(icon:Icon(Icons.accessible))
            ]
          ),
         ),
@@ -55,7 +58,8 @@ class Home extends StatelessWidget {
         children:[
           ListViewDemo(),
           BasicDemo(),
-          LayoutDemo()
+          LayoutDemo(),
+          ViewDemo()
         ]
       ),
       drawer: DrawerDemo(),
