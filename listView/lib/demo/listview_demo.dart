@@ -1,37 +1,48 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:helloworld_flutter/demo/post_show.dart';
 import '../model/post.dart';
+import './post_show.dart';
 
-class ListViewDemo extends StatelessWidget{
 
-    Widget _listItemBuilder(BuildContext context, int index){
+
+class ListViewDemo extends StatelessWidget {
+  Widget _listItemBuilder(BuildContext context, int index) {
     return Container(
       color: Colors.yellow,
       margin: EdgeInsets.all(8.0),
-      child: Column(
+      child: Stack(
         children: [
-          Image.network(posts[index].imageUrl),
-        //  SizedBox(
-        //   width: 100.0,
-        //   height: 0.0,
-        //   child:  Container(
-        //     width: 400.0,
-        //     height: 400.0,
-        //     color: Color(0xffff0000),
-        //   ),
-        // ),
-          SizedBox(height:5.0),
-          Text(
-            posts[index].title,
-            // ignore: deprecated_member_use
-            style: Theme.of(context).textTheme.subtitle1
+          Column(
+            children: [
+              AspectRatio(
+                  aspectRatio: 16 / 9,
+                  child:
+                      Image.network(posts[index].imageUrl, fit: BoxFit.cover)),
+              SizedBox(height: 5.0),
+              Text(posts[index].title,
+                  // ignore: deprecated_member_use
+                  style: Theme.of(context).textTheme.subtitle1),
+              Text(posts[index].author,
+                  style: Theme.of(context).textTheme.subtitle2),
+              SizedBox(height: 5.0)
+            ],
           ),
-          Text(
-            posts[index].author,
-            style: Theme.of(context).textTheme.subtitle2
-          ),
-          SizedBox(height:5.0)
+          Positioned.fill(
+            child:Material(
+              color: Colors.transparent,
+              child: InkWell(
+                splashColor:Colors.white.withOpacity(0.3),
+                highlightColor: Colors.white.withOpacity(0.1),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => PostShowDemo(post: posts[index])
+                    )
+                  );
+                }
+              ),
+            )
+          )
         ],
       ),
     );
@@ -41,8 +52,6 @@ class ListViewDemo extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return ListView.builder(
-          itemCount: posts.length,
-          itemBuilder: _listItemBuilder
-    );
+        itemCount: posts.length, itemBuilder: _listItemBuilder);
   }
 }
