@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
@@ -55,14 +57,16 @@ class _RandomWordsState extends State<RandomWords> {
 
   // Color color = Theme.of(context).primaryColor;
 
-  Widget buttonSection = Row(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: [
-      _buildButtonColum(Colors.red, Icons.call, 'CALL'),
-      _buildButtonColum(Colors.red, Icons.call, 'CALL'),
-      _buildButtonColum(Colors.red, Icons.call, 'CALL')
-    ],
-  );
+  Widget buttonSection() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _buildButtonColum(Colors.red, Icons.call, 'CALL'),
+        _buildButtonColum(Colors.red, Icons.near_me, 'ROUTE'),
+        _buildButtonColum(Colors.red, Icons.share, 'SHARE')
+      ],
+    );
+  }
 
   Widget titleSection = Container(
     padding: const EdgeInsets.all(20),
@@ -102,15 +106,39 @@ class _RandomWordsState extends State<RandomWords> {
     ),
   );
 
+  Widget textSection() {
+    return const Padding(
+      padding: EdgeInsets.all(32),
+      child: Text(
+        'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
+        'Alps. Situated 1,578 meters above sea level, it is one of the '
+        'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
+        'half-hour walk through pastures and pine forest, leads you to the '
+        'lake, which warms to 20 degrees Celsius in the summer. Activities '
+        'enjoyed here include rowing, and riding the summer toboggan run.',
+        softWrap: true,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
     return Scaffold(
         appBar: AppBar(
           title: const Text("Start Name Generator"),
         ),
-        body: Column(
-          children: [titleSection],
+        body: ListView(
+          children: [
+            Image.asset(
+              'assets/images/lake.jpg',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
+            titleSection,
+            buttonSection(),
+            textSection()
+          ],
         ));
   }
 }
