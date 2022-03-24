@@ -10,12 +10,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.red),
       title: 'Welcome to Flutter',
       // theme: ThemeData(
       //   primarySwatch: Colors.red,
       // ),
-      home: RandomWords(),
+      home: const RandomWords(),
     );
   }
 }
@@ -30,6 +31,38 @@ class RandomWords extends StatefulWidget {
 class _RandomWordsState extends State<RandomWords> {
   final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
+
+  Column _buildButtonColum(Color color, IconData icon, String label) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(
+          icon,
+          color: color,
+        ),
+        Container(
+          margin: const EdgeInsets.only(top: 8),
+          child: Text(
+            label,
+            style: TextStyle(
+                fontSize: 12, fontWeight: FontWeight.w400, color: color),
+          ),
+        )
+      ],
+    );
+  }
+
+  // Color color = Theme.of(context).primaryColor;
+
+  Widget buttonSection = Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      _buildButtonColum(Colors.red, Icons.call, 'CALL'),
+      _buildButtonColum(Colors.red, Icons.call, 'CALL'),
+      _buildButtonColum(Colors.red, Icons.call, 'CALL')
+    ],
+  );
 
   Widget titleSection = Container(
     padding: const EdgeInsets.all(20),
@@ -62,7 +95,7 @@ class _RandomWordsState extends State<RandomWords> {
           color: Colors.red[500],
         ),
         Container(
-          padding: EdgeInsets.only(left: 10),
+          margin: const EdgeInsets.only(left: 10),
           child: const Text('41'),
         ),
       ],
@@ -77,9 +110,7 @@ class _RandomWordsState extends State<RandomWords> {
           title: const Text("Start Name Generator"),
         ),
         body: Column(
-          children: [
-            titleSection,
-          ],
+          children: [titleSection],
         ));
   }
 }
