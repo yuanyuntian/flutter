@@ -3,25 +3,48 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
+import 'FavoriteWidget.dart';
+import 'TapboxA.dart';
+import 'ParentWidget.dart';
+
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.red),
-      title: 'Welcome to Flutter',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.red,
-      // ),
-      home: const RandomWords(),
+      title: 'Flutter Demo',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Flutter Demo'),
+        ),
+        body: const Center(
+          child: ParentWidget(),
+        ),
+      ),
     );
   }
 }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       theme: ThemeData(primarySwatch: Colors.red),
+//       title: 'Welcome to Flutter',
+//       // theme: ThemeData(
+//       //   primarySwatch: Colors.red,
+//       // ),
+//       home: const RandomWords(),
+//     );
+//   }
+// }
 
 class RandomWords extends StatefulWidget {
   const RandomWords({Key? key}) : super(key: key);
@@ -37,7 +60,7 @@ class _RandomWordsState extends State<RandomWords> {
   Column _buildButtonColum(Color color, IconData icon, String label) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: MainAxisSize.max,
       children: [
         Icon(
           icon,
@@ -94,14 +117,7 @@ class _RandomWordsState extends State<RandomWords> {
             ],
           ),
         ),
-        Icon(
-          Icons.star,
-          color: Colors.red[500],
-        ),
-        Container(
-          margin: const EdgeInsets.only(left: 10),
-          child: const Text('41'),
-        ),
+        const FavoriteWidget(),
       ],
     ),
   );
