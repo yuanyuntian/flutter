@@ -53,6 +53,7 @@ class _MyAppState extends State<MyApp> {
                   builder: (context) => ItemScreen(id: id)));
             });
           },
+          child: const Icon(Icons.add),
         ),
       ),
     );
