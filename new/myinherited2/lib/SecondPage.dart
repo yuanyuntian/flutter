@@ -29,10 +29,8 @@ class _SecondPageState extends State<SecondPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // PersonInheritedWidget.of(context)
-          //     ?.updateCallback(Person(name: "李四", age: 25));
           PersonInheritedWidget.of(context)
-              ?.updateInfo(Person(name: 'hello', age: 10));
+              ?.updateCallback(Person(name: "李四", age: 25));
         },
         child: const Icon(Icons.change_circle_outlined),
       ),

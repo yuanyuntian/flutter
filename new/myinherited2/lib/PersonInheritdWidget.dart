@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'Person.dart';
 
 class PersonInheritedWidget extends InheritedWidget {
-  PersonInheritedWidget(
+  const PersonInheritedWidget(
       {Key? key,
       required this.person,
       required this.updateCallback,
@@ -11,7 +11,7 @@ class PersonInheritedWidget extends InheritedWidget {
 
   final Widget child;
 
-  Person person;
+  final Person person;
 
   final Function(Person person) updateCallback;
 
@@ -19,10 +19,13 @@ class PersonInheritedWidget extends InheritedWidget {
     return context.dependOnInheritedWidgetOfExactType<PersonInheritedWidget>();
   }
 
-  void updateInfo(Person _person) {
-    // updateCallback(person);
-    person = _person;
-  }
+  // void updateInfo(Person person) {
+  //   updateCallback(person);
+  // }
+
+  // void up(Person person) {
+  //       updateCallback(person);
+  // }
 
   @override
   bool updateShouldNotify(PersonInheritedWidget oldWidget) {
