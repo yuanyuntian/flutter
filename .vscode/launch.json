@@ -1,0 +1,108 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "dice",
+            "cwd": "dice",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "dice (profile mode)",
+            "cwd": "dice",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "dice (release mode)",
+            "cwd": "dice",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "listView",
+            "cwd": "listView",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "listView (profile mode)",
+            "cwd": "listView",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "listView (release mode)",
+            "cwd": "listView",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "mycard",
+            "cwd": "mycard",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "mycard (profile mode)",
+            "cwd": "mycard",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "mycard (release mode)",
+            "cwd": "mycard",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "hello world",
+            "cwd": "layout/hello world",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "hello world (profile mode)",
+            "cwd": "layout/hello world",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "hello world (release mode)",
+            "cwd": "layout/hello world",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "startup_namer",
+            "cwd": "layout/startup_namer",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "startup_namer (profile mode)",
+            "cwd": "layout/startup_namer",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "startup_namer (release mode)",
+            "cwd": "layout/startup_namer",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
